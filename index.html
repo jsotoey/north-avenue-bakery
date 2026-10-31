@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>North Avenue Bakery — Elizabeth, NJ</title>
+  <meta name="description" content="Authentic Portuguese bakery in Elizabeth, NJ. Home of the famous Pastel de Nata. Fresh pastries, bread, and custom cakes daily.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --cream: #FDF6EC; --warm-tan: #F5E6D0; --brown: #5C3D2E;
+      --dark-brown: #3A2418; --navy: #1B2A4A; --gold: #C8963E;
+      --white: #FFFFFF; --text: #2C2C2C; --text-light: #6B6B6B;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--cream); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .header { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.06); padding: 0 2rem; }
+    .header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-img { height: 52px; width: auto; border-radius: 50%; }
+    .logo-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--dark-brown); letter-spacing: 0.02em; line-height: 1.2; }
+    .logo-text span { display: block; font-size: 0.65rem; font-family: 'Inter', sans-serif; font-weight: 400; color: var(--text-light); letter-spacing: 0.12em; text-transform: uppercase; }
+    nav { display: flex; align-items: center; gap: 2rem; }
+    nav a { font-size: 0.85rem; font-weight: 500; color: var(--text); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; }
+    nav a:hover { color: var(--gold); }
+    .btn { display: inline-block; padding: 10px 24px; font-size: 0.85rem; font-weight: 600; border-radius: 6px; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
+    .btn-primary { background: var(--navy); color: var(--white); }
+    .btn-primary:hover { background: #243a62; }
+    .btn-outline { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); }
+    .btn-outline:hover { background: var(--navy); color: var(--white); }
+    .btn-gold { background: var(--gold); color: var(--white); }
+    .btn-gold:hover { background: #b8862e; }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--text); margin: 5px 0; transition: 0.3s; }
+    .hero { position: relative; height: 70vh; min-height: 480px; max-height: 700px; overflow: hidden; }
+    .hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(27,42,74,0.75) 0%, rgba(27,42,74,0.3) 60%, transparent 100%); display: flex; align-items: center; padding: 0 2rem; }
+    .hero-content { max-width: 1200px; margin: 0 auto; width: 100%; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 700; color: var(--white); line-height: 1.15; max-width: 520px; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.1rem; color: rgba(255,255,255,0.85); max-width: 440px; margin-bottom: 1.5rem; font-weight: 300; }
+    .hero .btn { font-size: 0.95rem; padding: 14px 32px; }
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 600; color: var(--dark-brown); margin-bottom: 1rem; }
+    .features { background: var(--white); }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
+    .feature-card { border-radius: 12px; overflow: hidden; background: var(--cream); transition: transform 0.25s, box-shadow 0.25s; }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    .feature-card img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+    .feature-card-body { padding: 1.25rem 1.5rem; }
+    .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 0.4rem; color: var(--dark-brown); }
+    .feature-card p { font-size: 0.88rem; color: var(--text-light); }
+    .about { background: var(--cream); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-img { border-radius: 16px; overflow: hidden; }
+    .about-img img { width: 100%; aspect-ratio: 5/6; object-fit: cover; }
+    .about-text p { font-size: 1rem; color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.75; }
+    .nata-feature { background: var(--navy); color: var(--white); position: relative; overflow: hidden; }
+    .nata-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .nata-img { border-radius: 16px; overflow: hidden; }
+    .nata-img img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+    .nata-text .section-title { color: var(--white); }
+    .nata-text p { color: rgba(255,255,255,0.75); margin-bottom: 1.5rem; line-height: 1.75; }
+    .nata-text .btn-gold { margin-top: 0.5rem; }
+    .gallery { background: var(--white); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
+    .gallery-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; transition: transform 0.3s; cursor: pointer; }
+    .gallery-grid img:hover { transform: scale(1.03); }
+    .reviews { background: var(--cream); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
+    .review-card { background: var(--white); border-radius: 12px; padding: 2rem; position: relative; }
+    .review-card::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--gold); opacity: 0.3; position: absolute; top: 0.5rem; left: 1.25rem; line-height: 1; }
+    .review-card p { font-size: 0.92rem; color: var(--text-light); font-style: italic; margin-bottom: 1rem; line-height: 1.65; position: relative; z-index: 1; }
+    .review-card .reviewer { font-size: 0.85rem; font-weight: 600; color: var(--dark-brown); font-style: normal; }
+    .review-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 0.75rem; }
+    .contact { background: var(--navy); color: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .contact-info h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; }
+    .contact-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 1.25rem; }
+    .contact-item .icon { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; opacity: 0.7; }
+    .contact-item p { font-size: 0.92rem; color: rgba(255,255,255,0.8); }
+    .contact-item a { color: rgba(255,255,255,0.8); text-decoration: none; }
+    .contact-item a:hover { color: var(--gold); }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-form input, .contact-form textarea { padding: 12px 16px; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; background: rgba(255,255,255,0.08); color: var(--white); font-family: inherit; font-size: 0.9rem; outline: none; transition: border-color 0.2s; }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.4); }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+    .contact-form .btn { align-self: flex-start; }
+    .footer { background: var(--dark-brown); color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem 2rem; font-size: 0.8rem; }
+    @media (max-width: 900px) {
+      .features-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+      .about-grid, .nata-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
+      .hero h1 { font-size: 2.2rem; }
+    }
+    @media (max-width: 768px) {
+      nav { display: none; position: fixed; top: 72px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 1.5rem 2rem; gap: 1rem; border-bottom: 1px solid rgba(0,0,0,0.06); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+      nav.open { display: flex; }
+      .mobile-toggle { display: block; }
+      .header .btn-primary { display: none; }
+      .hero { min-height: 380px; }
+      .hero h1 { font-size: 1.8rem; }
+      section { padding: 3rem 1.25rem; }
+      .section-title { font-size: 1.7rem; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo-link">
+        <img class="logo-img" src="https://static.wixstatic.com/media/716244_1d40b0a588ea4bd48466bcc47f232f48~mv2.jpg/v1/crop/x_204,y_20,w_682,h_682/fill/w_120,h_120,al_c,q_85/716244_1d40b0a588ea4bd48466bcc47f232f48~mv2.jpg" alt="North Avenue Bakery logo">
+        <div class="logo-text">
+          North Avenue Bakery
+          <span>Elizabeth, NJ</span>
+        </div>
+      </a>
+      <nav id="nav">
+        <a href="#about">About</a>
+        <a href="#nata">Our Nata</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="https://northavenuebakery.cloveronline.com/menu/all" target="_blank" class="btn btn-primary">Order Online</a>
+      <button class="mobile-toggle" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img src="https://static.wixstatic.com/media/716244_789956312db34f92ba1ea7149f7c9b52~mv2.jpg/v1/fill/w_1600,h_1000,al_c,q_85/716244_789956312db34f92ba1ea7149f7c9b52~mv2.jpg" alt="Fresh pastries at North Avenue Bakery">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>The House of the Famous Pastel de Nata</h1>
+        <p>Authentic Portuguese baked goods, made fresh daily in Elizabeth, NJ since 2005.</p>
+        <a href="https://northavenuebakery.cloveronline.com/menu/all" target="_blank" class="btn btn-gold">Order Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="section-inner">
+      <p class="section-label">What We're Known For</p>
+      <h2 class="section-title">Delicious Portuguese Baked Treats</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <img src="https://static.wixstatic.com/media/716244_ec881f08c2154e7dbaad4c43a8a7db73~mv2.jpg/v1/fill/w_600,h_750,al_c,q_85/716244_ec881f08c2154e7dbaad4c43a8a7db73~mv2.jpg" alt="Pastel de Nata" loading="lazy">
+          <div class="feature-card-body">
+            <h3>Pastel de Nata</h3>
+            <p>Our signature Portuguese custard tart, baked to golden perfection.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="https://static.wixstatic.com/media/11062b_4ef8223c20d14912b6a81f772f2c4b67~mv2.jpg/v1/fill/w_600,h_750,al_c,q_85/11062b_4ef8223c20d14912b6a81f772f2c4b67~mv2.jpg" alt="Fresh Bread" loading="lazy">
+          <div class="feature-card-body">
+            <h3>Artisan Bread</h3>
+            <p>Traditional Portuguese bread and rolls, baked fresh every morning.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="https://static.wixstatic.com/media/11062b_162017b4425e4372a9bcd4b86983dd8d~mv2.jpg/v1/fill/w_600,h_750,al_c,q_85/11062b_162017b4425e4372a9bcd4b86983dd8d~mv2.jpg" alt="Pastries" loading="lazy">
+          <div class="feature-card-body">
+            <h3>Custom Cakes & Pastries</h3>
+            <p>Celebration cakes and pastries tailored to your special occasions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-img">
+          <img src="https://static.wixstatic.com/media/716244_6d831965adcb433abedf8ae7c9bc8faef000.jpg/v1/fill/w_800,h_960,al_c,q_85/716244_6d831965adcb433abedf8ae7c9bc8faef000.jpg" alt="Inside North Avenue Bakery" loading="lazy">
+        </div>
+        <div class="about-text">
+          <p class="section-label">Our Story</p>
+          <h2 class="section-title">Our Passion for Authentic Portuguese Baking</h2>
+          <p>At North Avenue Bakery, we take pride in crafting authentic Portuguese baked goods that bring a taste of Portugal to our customers' tables. With a commitment to freshness and tradition, every pastry and cake reflects our dedication to delivering a delightful experience.</p>
+          <p>Explore our wide selection of Portuguese treats and savor the true essence of Portuguese baking.</p>
+          <a href="https://northavenuebakery.cloveronline.com/menu/all" target="_blank" class="btn btn-outline">View Menu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nata-feature" id="nata">
+    <div class="section-inner">
+      <div class="nata-grid">
+        <div class="nata-text">
+          <p class="section-label" style="color: var(--gold);">Our Signature</p>
+          <h2 class="section-title">Indulge in Portuguese Custard Tarts</h2>
+          <p>The Pastel de Nata is our crown jewel. A flaky, caramelized shell filled with creamy egg custard, baked at high heat for that signature char. Every batch is made from scratch using a recipe passed down through generations.</p>
+          <a href="https://northavenuebakery.cloveronline.com/menu/all" target="_blank" class="btn btn-gold">Order Natas</a>
+        </div>
+        <div class="nata-img">
+          <img src="https://static.wixstatic.com/media/716244_e785477f46e443fbafaed1651e33ed17~mv2.jpg/v1/fill/w_800,h_1000,al_c,q_85/716244_e785477f46e443fbafaed1651e33ed17~mv2.jpg" alt="Pastel de Nata close-up" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="section-inner">
+      <p class="section-label">Custom Orders</p>
+      <h2 class="section-title">Tailored to Your Needs</h2>
+      <div class="gallery-grid">
+        <img src="https://static.wixstatic.com/media/716244_cbac0492db5549328b1e95e89b3a3247~mv2.jpg/v1/fill/w_500,h_500,al_c,q_80/716244_cbac0492db5549328b1e95e89b3a3247~mv2.jpg" alt="Custom bakery item" loading="lazy">
+        <img src="https://static.wixstatic.com/media/716244_a832b0d359bb41b3a145038628b1b747~mv2.jpg/v1/fill/w_500,h_500,al_c,q_80/716244_a832b0d359bb41b3a145038628b1b747~mv2.jpg" alt="Custom bakery item" loading="lazy">
+        <img src="https://static.wixstatic.com/media/716244_5df4f74766224dde841390d8aaca683e~mv2.jpg/v1/fill/w_500,h_500,al_c,q_80/716244_5df4f74766224dde841390d8aaca683e~mv2.jpg" alt="Custom bakery item" loading="lazy">
+        <img src="https://static.wixstatic.com/media/716244_fba2a82e6b11458a8b0391988c97bee0~mv2.jpg/v1/fill/w_500,h_500,al_c,q_80/716244_fba2a82e6b11458a8b0391988c97bee0~mv2.jpg" alt="Custom bakery item" loading="lazy">
+        <img src="https://static.wixstatic.com/media/716244_812ccdc897b7429b9d87f96211ee3708~mv2.jpg/v1/fill/w_500,h_500,al_c,q_80/716244_812ccdc897b7429b9d87f96211ee3708~mv2.jpg" alt="Custom bakery item" loading="lazy">
+        <img src="https://static.wixstatic.com/media/716244_ac8ba0db80914bcd86851087b5f38b5c~mv2.jpg/v1/fill/w_500,h_500,al_c,q_80/716244_ac8ba0db80914bcd86851087b5f38b5c~mv2.jpg" alt="Custom bakery item" loading="lazy">
+        <img src="https://static.wixstatic.com/media/716244_43098b923eac41088e0ce2ef6b046b54~mv2.jpg/v1/fill/w_500,h_500,al_c,q_80/716244_43098b923eac41088e0ce2ef6b046b54~mv2.jpg" alt="Custom bakery item" loading="lazy">
+        <img src="https://static.wixstatic.com/media/716244_2c7b78ed3b7e49779f5e5f9f7c934008~mv2.jpg/v1/fill/w_500,h_500,al_c,q_80/716244_2c7b78ed3b7e49779f5e5f9f7c934008~mv2.jpg" alt="Custom bakery item" loading="lazy">
+        <img src="https://static.wixstatic.com/media/716244_a927724ef1e2406e95be886fc3dd1780~mv2.jpg/v1/fill/w_500,h_500,al_c,q_80/716244_a927724ef1e2406e95be886fc3dd1780~mv2.jpg" alt="Custom bakery item" loading="lazy">
+        <img src="https://static.wixstatic.com/media/716244_3e482734d33e465f9572c8ea68ae3865~mv2.jpg/v1/fill/w_500,h_500,al_c,q_80/716244_3e482734d33e465f9572c8ea68ae3865~mv2.jpg" alt="Custom bakery item" loading="lazy">
+        <img src="https://static.wixstatic.com/media/716244_3f9546a5c5754e11af99b86f884fc99c~mv2.jpg/v1/fill/w_500,h_500,al_c,q_80/716244_3f9546a5c5754e11af99b86f884fc99c~mv2.jpg" alt="Custom bakery item" loading="lazy">
+        <img src="https://static.wixstatic.com/media/716244_1e6ccfcb7b6745e7a8ab2f2f2093b9da~mv2.jpg/v1/fill/w_500,h_500,al_c,q_80/716244_1e6ccfcb7b6745e7a8ab2f2f2093b9da~mv2.jpg" alt="Custom bakery item" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="section-inner">
+      <p class="section-label">Happy Customers</p>
+      <h2 class="section-title">What Our Customers Say</h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>North Avenue Bakery never fails to impress. The pastries and cakes are simply delightful, and the service is top-notch.</p>
+          <span class="reviewer">Ana Silva</span>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>I'm amazed by the variety of Portuguese treats at North Avenue. Each bite takes me back to Portugal.</p>
+          <span class="reviewer">Ricardo Santos</span>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>North Avenue Bakery has been my favorite for years. The authenticity and richness of flavors in their baked goods are unmatched.</p>
+          <span class="reviewer">Sofia Oliveira</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Visit Us</h3>
+          <div class="contact-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <div>
+              <p>1034 North Avenue</p>
+              <p>Elizabeth, NJ 07201</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <p><a href="tel:9083529145">(908) 352-9145</a></p>
+          </div>
+          <div class="contact-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div>
+              <p>Open Daily</p>
+              <p style="font-size: 0.85rem; opacity: 0.6;">Call for current hours</p>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.btn').textContent='Sent!'; this.querySelector('.btn').style.background='#27ae60';">
+          <input type="text" placeholder="Your name" required>
+          <input type="email" placeholder="Your email" required>
+          <input type="text" placeholder="Subject">
+          <textarea placeholder="Write a message" required></textarea>
+          <button type="submit" class="btn btn-gold">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 North Avenue Bakery. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
