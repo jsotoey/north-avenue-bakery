@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>NAB - Warm Earth</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #FAF7F2;
+  color: #4A4A4A;
+  font-weight: 300;
+  width: 1440px;
+}
+h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 300; color: #2E2E2E; }
+
+/* Header */
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 100px;
+  background: transparent;
+  position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+}
+.logo-area { display: flex; align-items: center; gap: 14px; }
+.logo-area img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.4); }
+.logo-area span { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: #fff; letter-spacing: 0.5px; }
+.nav { display: flex; gap: 32px; }
+.nav a { text-decoration: none; color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 400; letter-spacing: 0.5px; }
+.order-btn {
+  background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.3); color: #fff;
+  padding: 10px 28px; border-radius: 999px; font-size: 13px; letter-spacing: 1px;
+  text-transform: uppercase; cursor: pointer; font-weight: 400;
+}
+
+/* Hero - Full width image */
+.hero {
+  position: relative; height: 90vh; overflow: hidden;
+}
+.hero img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.45) 100%);
+}
+.hero-content {
+  position: absolute; bottom: 100px; left: 100px; right: 100px;
+  color: #fff;
+}
+.hero-content h1 { font-size: 72px; line-height: 1.05; color: #fff; margin-bottom: 16px; font-weight: 300; }
+.hero-content p { font-size: 17px; color: rgba(255,255,255,0.8); max-width: 480px; line-height: 1.7; margin-bottom: 32px; font-weight: 300; }
+.hero-cta {
+  display: inline-block; background: #D4A855; color: #fff; padding: 14px 40px;
+  border-radius: 999px; text-decoration: none; font-size: 13px; letter-spacing: 1px;
+  text-transform: uppercase; font-weight: 400;
+}
+
+/* Info Bar */
+.info-bar {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  background: #EDE6D9; padding: 0;
+}
+.info-bar-item {
+  padding: 36px 40px; text-align: center;
+  border-right: 1px solid rgba(0,0,0,0.06);
+}
+.info-bar-item:last-child { border-right: none; }
+.info-bar-item h3 { font-size: 28px; margin-bottom: 6px; color: #5C3D2E; font-weight: 400; }
+.info-bar-item p { font-size: 13px; color: #8A7A6B; letter-spacing: 0.5px; }
+
+/* Products - Horizontal scroll look */
+.products { padding: 80px 100px; }
+.products-header {
+  display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 44px;
+}
+.products-header h2 { font-size: 40px; font-weight: 300; }
+.products-header a { font-size: 13px; color: #D4A855; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase; }
+.product-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.product-card { cursor: pointer; }
+.product-card img {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 16px;
+  margin-bottom: 16px;
+}
+.product-card h3 { font-size: 20px; font-weight: 400; margin-bottom: 4px; }
+.product-card p { font-size: 13px; color: #9A8A7B; }
+
+/* Story */
+.story {
+  padding: 80px 100px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  background: #F5EFE5;
+}
+.story-img { border-radius: 20px; overflow: hidden; }
+.story-img img { width: 100%; height: 480px; object-fit: cover; display: block; }
+.story-text h2 { font-size: 40px; margin-bottom: 24px; font-weight: 300; }
+.story-text p { font-size: 15px; line-height: 1.9; color: #6B6058; margin-bottom: 16px; }
+.story-accent { width: 40px; height: 2px; background: #D4A855; margin-bottom: 24px; }
+
+/* Nata Spotlight */
+.nata {
+  padding: 100px 100px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.nata-text h2 { font-size: 48px; margin-bottom: 20px; font-weight: 300; line-height: 1.1; }
+.nata-text p { font-size: 15px; line-height: 1.9; color: #7A7264; margin-bottom: 28px; }
+.nata-link {
+  display: inline-block; color: #D4A855; text-decoration: none;
+  font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+  border-bottom: 1px solid #D4A855; padding-bottom: 4px;
+}
+.nata-img { border-radius: 20px; overflow: hidden; }
+.nata-img img { width: 100%; height: 450px; object-fit: cover; display: block; }
+
+/* Gallery */
+.gallery { padding: 0 100px 80px; }
+.gallery h2 { text-align: center; font-size: 40px; margin-bottom: 44px; font-weight: 300; }
+.gallery-masonry {
+  columns: 3; column-gap: 16px;
+}
+.gallery-masonry img {
+  width: 100%; border-radius: 12px; margin-bottom: 16px; display: block;
+}
+
+/* Visit */
+.visit {
+  margin: 0 100px 80px; padding: 60px 60px;
+  background: #EDE6D9; border-radius: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.visit h2 { font-size: 36px; font-weight: 300; margin-bottom: 12px; }
+.visit p { font-size: 14px; color: #7A7264; line-height: 1.8; }
+.visit-right { text-align: right; }
+.visit-cta {
+  display: inline-block; background: #5C3D2E; color: #fff; padding: 14px 40px;
+  border-radius: 999px; text-decoration: none; font-size: 13px; letter-spacing: 1px;
+  text-transform: uppercase; margin-top: 16px;
+}
+
+/* Footer */
+.footer {
+  text-align: center; padding: 36px 100px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  font-size: 12px; color: #B5A99A;
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo-area">
+    <img src="https://static.wixstatic.com/media/716244_1d40b0a588ea4bd48466bcc47f232f48~mv2.jpg" alt="NAB Logo">
+    <span>North Avenue Bakery</span>
+  </div>
+  <nav class="nav">
+    <a href="#">Menu</a>
+    <a href="#">Story</a>
+    <a href="#">Gallery</a>
+    <a href="#">Visit</a>
+  </nav>
+  <button class="order-btn">Order Online</button>
+</header>
+
+<section class="hero">
+  <img src="https://static.wixstatic.com/media/716244_789956312db34f92ba1ea7149f7c9b52~mv2.jpg" alt="Bakery">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Portuguese<br>tradition,<br>baked daily</h1>
+    <p>Authentic pastries, artisan breads, and our famous Pastel de Nata — made fresh every morning since 2005.</p>
+    <a href="#" class="hero-cta">Order Online</a>
+  </div>
+</section>
+
+<div class="info-bar">
+  <div class="info-bar-item">
+    <h3>Since 2005</h3>
+    <p>Family owned &amp; operated</p>
+  </div>
+  <div class="info-bar-item">
+    <h3>4:30 AM</h3>
+    <p>Fresh baked every morning</p>
+  </div>
+  <div class="info-bar-item">
+    <h3>100+ Recipes</h3>
+    <p>Traditional Portuguese flavors</p>
+  </div>
+</div>
+
+<section class="products">
+  <div class="products-header">
+    <h2>Our Favorites</h2>
+    <a href="#">View Full Menu →</a>
+  </div>
+  <div class="product-row">
+    <div class="product-card">
+      <img src="https://static.wixstatic.com/media/716244_ec881f08c2154e7dbaad4c43a8a7db73~mv2.jpg" alt="Nata">
+      <h3>Pastel de Nata</h3>
+      <p>Portuguese custard tart</p>
+    </div>
+    <div class="product-card">
+      <img src="https://static.wixstatic.com/media/11062b_4ef8223c20d14912b6a81f772f2c4b67~mv2.jpg" alt="Bread">
+      <h3>Artisan Bread</h3>
+      <p>Baked from scratch daily</p>
+    </div>
+    <div class="product-card">
+      <img src="https://static.wixstatic.com/media/11062b_162017b4425e4372a9bcd4b86983dd8d~mv2.jpg" alt="Pastries">
+      <h3>Sweet Pastries</h3>
+      <p>Traditional Portuguese treats</p>
+    </div>
+    <div class="product-card">
+      <img src="https://static.wixstatic.com/media/716244_e785477f46e443fbafaed1651e33ed17~mv2.jpg" alt="Nata closeup">
+      <h3>Custom Orders</h3>
+      <p>Cakes &amp; party trays</p>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="story-img">
+    <img src="https://static.wixstatic.com/media/716244_6d831965adcb433abedf8ae7c9bc8faef000.jpg" alt="Interior">
+  </div>
+  <div class="story-text">
+    <div class="story-accent"></div>
+    <h2>Our Story</h2>
+    <p>North Avenue Bakery started as a small family dream — bringing the authentic tastes of Portugal to Elizabeth, New Jersey.</p>
+    <p>Every recipe has been passed down through generations. From our hand-rolled pastry dough to our signature custard filling, we honor the craft that makes Portuguese baking special.</p>
+  </div>
+</section>
+
+<section class="nata">
+  <div class="nata-text">
+    <h2>The Famous<br>Pastel de Nata</h2>
+    <p>Crispy, flaky layers of buttery pastry surrounding a rich, caramelized custard. Made fresh every morning, just as they do in the bakeries of Lisbon.</p>
+    <a href="#" class="nata-link">Order a Dozen →</a>
+  </div>
+  <div class="nata-img">
+    <img src="https://static.wixstatic.com/media/716244_cbac0492db5549328b1e95e89b3a3247~mv2.jpg" alt="Natas">
+  </div>
+</section>
+
+<section class="gallery">
+  <h2>From Our Kitchen</h2>
+  <div class="gallery-masonry">
+    <img src="https://static.wixstatic.com/media/716244_a832b0d359bb41b3a145038628b1b747~mv2.jpg" alt="">
+    <img src="https://static.wixstatic.com/media/716244_5df4f74766224dde841390d8aaca683e~mv2.jpg" alt="">
+    <img src="https://static.wixstatic.com/media/716244_fba2a82e6b11458a8b0391988c97bee0~mv2.jpg" alt="">
+    <img src="https://static.wixstatic.com/media/716244_812ccdc897b7429b9d87f96211ee3708~mv2.jpg" alt="">
+    <img src="https://static.wixstatic.com/media/716244_ac8ba0db80914bcd86851087b5f38b5c~mv2.jpg" alt="">
+    <img src="https://static.wixstatic.com/media/716244_43098b923eac41088e0ce2ef6b046b54~mv2.jpg" alt="">
+  </div>
+</section>
+
+<section class="visit">
+  <div>
+    <h2>Come Visit Us</h2>
+    <p>454 North Avenue, Elizabeth, NJ 07208<br>(908) 469-5899<br>Mon–Sat 6:00 AM – 8:00 PM · Sun 6:30 AM – 6:00 PM</p>
+  </div>
+  <div class="visit-right">
+    <a href="#" class="visit-cta">Get Directions</a>
+  </div>
+</section>
+
+<footer class="footer">
+  &copy; 2024 North Avenue Bakery · Elizabeth, NJ
+</footer>
+
+</body>
+</html>
