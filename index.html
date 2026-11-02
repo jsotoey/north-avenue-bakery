@@ -39,7 +39,7 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 .nav-brand { display: flex; align-items: center; text-decoration: none; }
-.nav-logo { height: 36px; width: auto; display: block; }
+.nav-logo { height: 48px; width: auto; display: block; }
 .nav-links { display: flex; gap: 36px; }
 .nav-links a {
   font-size: 12px; font-weight: 400; color: var(--text);
@@ -94,15 +94,6 @@ nav {
   background-color: #D4A574;
   position: relative; overflow: hidden;
 }
-.hero-float-card {
-  position: absolute; bottom: 40px; left: -30px;
-  background: white; border-radius: 16px; padding: 16px 20px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-  display: flex; align-items: center; gap: 12px;
-}
-.hero-float-icon { font-size: 28px; }
-.hero-float-text h4 { font-size: 14px; font-weight: 500; color: var(--dark); }
-.hero-float-text p { font-size: 12px; color: var(--text-light); }
 
 /* ===== MARQUEE ===== */
 .marquee-section {
@@ -176,35 +167,18 @@ nav {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
 }
 .video-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.35) 100%);
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.25) 100%);
 }
 .video-center {
-  position: absolute; inset: 0; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; z-index: 2;
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 32px; z-index: 2; pointer-events: none;
   text-align: center; color: white;
 }
 .video-center h3 {
   font-family: 'Cormorant Garamond', serif; font-size: 48px;
-  font-weight: 400; margin-bottom: 8px; letter-spacing: 1px;
+  font-weight: 400; letter-spacing: 1px;
   text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
-.video-center p {
-  font-size: 15px; opacity: 0.9; margin-bottom: 28px;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
-}
-.play-circle {
-  width: 64px; height: 64px;
-  border: 2px solid rgba(255,255,255,0.8); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto; cursor: pointer; transition: border-color 0.3s;
-  background: rgba(255,255,255,0.1); backdrop-filter: blur(4px);
-}
-.play-circle:hover { border-color: white; }
-.play-circle::after {
-  content: ''; width: 0; height: 0;
-  border-left: 14px solid white; border-top: 9px solid transparent;
-  border-bottom: 9px solid transparent; margin-left: 3px;
 }
 
 /* ===== VISIT — clean two-column with storefront photo ===== */
@@ -262,31 +236,31 @@ footer {
 }
 footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
 
-/* ===== STICKY ORDER — floating bottom-left pill ===== */
+/* ===== STICKY ORDER — floating bottom-right pill ===== */
 .order-bar {
-  position: fixed; bottom: 24px; left: 24px; z-index: 200;
+  position: fixed; bottom: 20px; right: 20px; z-index: 200;
 }
 .order-bar-inner {
-  background: var(--dark); padding: 12px 14px 12px 20px;
+  background: var(--dark); padding: 8px 10px 8px 16px;
   border-radius: 50px;
-  display: flex; align-items: center; gap: 16px;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
 }
 .order-bar .ready-tag {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 300;
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; color: rgba(255,255,255,0.65); font-weight: 300;
 }
 .order-bar .ready-dot {
-  width: 7px; height: 7px; border-radius: 50%; background: #90EE90;
+  width: 6px; height: 6px; border-radius: 50%; background: #90EE90;
   animation: pulse-dot 2s ease-in-out infinite;
 }
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
 }
 .order-bar .order-btn {
-  background: var(--sage); color: white; padding: 9px 20px;
-  border-radius: 50px; font-size: 12px; font-weight: 500;
-  letter-spacing: 1px; text-transform: uppercase;
+  background: var(--sage); color: white; padding: 7px 16px;
+  border-radius: 50px; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.8px; text-transform: uppercase;
   text-decoration: none; transition: background 0.3s;
 }
 .order-bar .order-btn:hover { background: #5a7e5f; }
@@ -321,13 +295,6 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
   </div>
   <div class="hero-visual">
     <div class="hero-img-main"></div>
-    <div class="hero-float-card">
-      <div class="hero-float-icon">🥧</div>
-      <div class="hero-float-text">
-        <h4>Pastel de Nata</h4>
-        <p>Our #1 bestseller</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -375,8 +342,6 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
     <div class="video-overlay"></div>
     <div class="video-center">
       <h3>From Zero to Delicious</h3>
-      <p>Watch us make it fresh</p>
-      <div class="play-circle"></div>
     </div>
   </div>
 </section>
