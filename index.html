@@ -39,7 +39,11 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 .nav-brand { display: flex; align-items: center; text-decoration: none; }
-.nav-logo { height: 96px; width: auto; display: block; border-radius: 50%; }
+.nav-logo {
+  height: 72px; width: 72px; display: block; border-radius: 50%;
+  object-fit: cover; object-position: center;
+  background: var(--cream);
+}
 .nav-links { display: flex; gap: 36px; }
 .nav-links a {
   font-size: 12px; font-weight: 400; color: var(--text);
@@ -50,7 +54,7 @@ nav {
 
 /* ===== HERO — B-style split ===== */
 .hero {
-  padding: 100px 48px 40px;
+  padding: 110px 48px 40px;
   display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
   align-items: center; max-width: 1100px; margin: 0 auto;
   min-height: 0;
@@ -69,27 +73,30 @@ nav {
 
 .hero-visual { position: relative; }
 .hero-img-main {
-  width: 100%; max-height: 420px; aspect-ratio: 3/4; border-radius: 200px 200px 24px 24px;
+  width: 100%; max-height: 520px; aspect-ratio: 3/4; border-radius: 200px 200px 24px 24px;
   object-fit: cover;
   display: block;
 }
 
 /* ===== MARQUEE ===== */
 .marquee-section {
-  padding: 18px 0;
+  padding: 10px 0;
   border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
   overflow: hidden; background: var(--warm-white);
 }
 .marquee-track {
-  display: flex; gap: 48px;
+  display: flex; gap: 36px;
   animation: scroll-left 22s linear infinite; width: max-content;
 }
 .marquee-item {
-  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  font-size: 9px; letter-spacing: 1.8px; text-transform: uppercase;
   color: var(--text-light); white-space: nowrap;
-  display: flex; align-items: center; gap: 12px; font-weight: 400;
+  display: flex; align-items: center; gap: 10px; font-weight: 400;
 }
-.marquee-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--sage); }
+.marquee-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--sage); }
+.marquee-stars { color: #D4A340; }
+.marquee-rating { color: #D4A340; font-weight: 500; }
+.marquee-pickup { color: var(--sage); font-weight: 500; }
 @keyframes scroll-left {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -286,20 +293,20 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
 <div class="marquee-section">
   <div class="marquee-track">
     <span class="marquee-item"><span class="marquee-dot"></span>Elizabeth, New Jersey</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>★★★★★ 4.6 · 219 Reviews on Google</span>
+    <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-stars">★★★★☆</span> <span class="marquee-rating">4.6 · 219 Reviews on Google</span></span>
     <span class="marquee-item"><span class="marquee-dot"></span>Baked Fresh Daily</span>
     <span class="marquee-item"><span class="marquee-dot"></span>"Best natas outside of Lisbon"</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Family Recipes</span>
     <span class="marquee-item"><span class="marquee-dot"></span>"A hidden gem in Elizabeth"</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Pickup in ~20 Min</span>
+    <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-pickup">Pickup in ~20 Min</span></span>
     <span class="marquee-item"><span class="marquee-dot"></span>Portuguese Tradition</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Elizabeth, New Jersey</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>★★★★★ 4.6 · 219 Reviews on Google</span>
+    <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-stars">★★★★☆</span> <span class="marquee-rating">4.6 · 219 Reviews on Google</span></span>
     <span class="marquee-item"><span class="marquee-dot"></span>Baked Fresh Daily</span>
     <span class="marquee-item"><span class="marquee-dot"></span>"Best natas outside of Lisbon"</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Family Recipes</span>
     <span class="marquee-item"><span class="marquee-dot"></span>"A hidden gem in Elizabeth"</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Pickup in ~20 Min</span>
+    <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-pickup">Pickup in ~20 Min</span></span>
     <span class="marquee-item"><span class="marquee-dot"></span>Portuguese Tradition</span>
   </div>
 </div>
