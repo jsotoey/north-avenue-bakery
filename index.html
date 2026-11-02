@@ -136,12 +136,9 @@ nav {
 }
 .story-img-placeholder {
   width: 100%; aspect-ratio: 1; border-radius: 16px;
-  background: var(--cream);
-  display: flex; align-items: center; justify-content: center;
+  background: url('tradition-photo.jpg') center/cover no-repeat;
+  background-color: #D4C4B0;
   position: relative; overflow: hidden;
-}
-.story-img-placeholder img {
-  width: 75%; height: auto; object-fit: contain;
 }
 .story-text .section-tag {
   font-size: 11px; font-weight: 500; letter-spacing: 2.5px;
@@ -164,41 +161,6 @@ nav {
   font-size: 20px; line-height: 1.5; color: var(--text); font-weight: 400;
 }
 
-/* ===== FAVORITES — clean grid, no prices ===== */
-.favorites-section {
-  padding: 40px 48px 80px; max-width: 1100px; margin: 0 auto;
-}
-.favorites-header {
-  text-align: center; margin-bottom: 48px;
-}
-.favorites-header .section-tag {
-  font-size: 11px; font-weight: 500; letter-spacing: 2.5px;
-  text-transform: uppercase; color: var(--sage); margin-bottom: 14px;
-}
-.favorites-header h2 {
-  font-family: 'Cormorant Garamond', serif; font-size: 34px;
-  font-weight: 400; color: var(--dark);
-}
-.favorites-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-}
-.fav-card {
-  background: var(--warm-white); border-radius: 16px; padding: 32px 24px;
-  text-align: center; border: 1px solid var(--border);
-  transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;
-}
-.fav-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(0,0,0,0.05);
-}
-.fav-icon { font-size: 32px; margin-bottom: 16px; }
-.fav-card h3 {
-  font-family: 'Cormorant Garamond', serif; font-size: 20px;
-  font-weight: 500; color: var(--dark); margin-bottom: 6px;
-}
-.fav-card .fav-desc {
-  font-size: 13px; color: var(--text-light); font-weight: 300;
-}
 
 /* ===== VIDEO — clean rounded card ===== */
 .video-section {
@@ -288,8 +250,6 @@ nav {
   .hero { grid-template-columns: 1fr; padding: 130px 28px 40px; text-align: center; }
   .hero-visual { max-width: 300px; margin: 0 auto; }
   .story-card { grid-template-columns: 1fr; padding: 32px 28px; gap: 32px; }
-  .favorites-section { padding: 80px 28px; }
-  .favorites-grid { grid-template-columns: 1fr; }
   .visit-card { grid-template-columns: 1fr; padding: 32px 28px; gap: 32px; }
   .video-section { padding: 20px 28px 60px; }
   nav { padding: 18px 20px; }
@@ -339,7 +299,7 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
   <a href="#" class="nav-brand"><img src="logo.png" alt="North Avenue Bakery" class="nav-logo"></a>
   <div class="nav-links">
     <a href="#story">Our Story</a>
-    <a href="#menu">Menu</a>
+    <a href="https://northavenuebakery.cloveronline.com/menu/all" target="_blank">Menu</a>
     <a href="#visit">Visit</a>
   </div>
 </nav>
@@ -392,9 +352,7 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
 <!-- STORY — C-style card with quote -->
 <section class="story-section" id="story">
   <div class="story-card">
-    <div class="story-img-placeholder">
-      <img src="logo.png" alt="North Avenue Bakery — Famous Pastel de Nata">
-    </div>
+    <div class="story-img-placeholder"></div>
     <div class="story-text">
       <div class="section-tag">Our Story</div>
       <h2>Three generations of tradition</h2>
@@ -407,45 +365,6 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
   </div>
 </section>
 
-<!-- FAVORITES — A-style clean grid -->
-<section class="favorites-section" id="menu">
-  <div class="favorites-header">
-    <div class="section-tag">Our Favorites</div>
-    <h2>What people love</h2>
-  </div>
-  <div class="favorites-grid">
-    <div class="fav-card">
-      <div class="fav-icon">🥧</div>
-      <h3>Pastel de Nata</h3>
-      <p class="fav-desc">Flaky, creamy, iconic</p>
-    </div>
-    <div class="fav-card">
-      <div class="fav-icon">🍰</div>
-      <h3>Tres Leches Cake</h3>
-      <p class="fav-desc">Moist three-milk cake</p>
-    </div>
-    <div class="fav-card">
-      <div class="fav-icon">🧁</div>
-      <h3>Cupcakes</h3>
-      <p class="fav-desc">Fluffy & colorful</p>
-    </div>
-    <div class="fav-card">
-      <div class="fav-icon">🍮</div>
-      <h3>Flan Napolitano</h3>
-      <p class="fav-desc">Classic custard</p>
-    </div>
-    <div class="fav-card">
-      <div class="fav-icon">🥐</div>
-      <h3>Croissants</h3>
-      <p class="fav-desc">Buttery & flaky</p>
-    </div>
-    <div class="fav-card">
-      <div class="fav-icon">☕</div>
-      <h3>Café con Leche</h3>
-      <p class="fav-desc">Rich espresso + milk</p>
-    </div>
-  </div>
-</section>
 
 <!-- VIDEO — clean rounded card -->
 <section class="video-section">
