@@ -27,12 +27,12 @@ html { scroll-behavior: smooth; }
 body {
   font-family: 'Inter', sans-serif; color: var(--text);
   background: var(--cream); -webkit-font-smoothing: antialiased;
-  padding-bottom: 0; padding-top: 44px;
+  padding-bottom: 0;
 }
 
 /* ===== NAV ===== */
 nav {
-  position: fixed; top: 44px; left: 0; right: 0; z-index: 100;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; justify-content: space-between; align-items: center;
   padding: 18px 48px;
   background: rgba(250,248,244,0.92); backdrop-filter: blur(14px);
@@ -50,7 +50,7 @@ nav {
 
 /* ===== HERO — B-style split ===== */
 .hero {
-  padding: 120px 48px 40px;
+  padding: 100px 48px 40px;
   display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
   align-items: center; max-width: 1100px; margin: 0 auto;
   min-height: 0;
@@ -136,12 +136,12 @@ nav {
 }
 .story-img-placeholder {
   width: 100%; aspect-ratio: 1; border-radius: 16px;
-  background: linear-gradient(155deg, #D4C4B0, #BEA78E);
+  background: var(--cream);
+  display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
 }
-.story-img-placeholder::after {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 40% 60%, rgba(255,255,255,0.2), transparent 50%);
+.story-img-placeholder img {
+  width: 75%; height: auto; object-fit: contain;
 }
 .story-text .section-tag {
   font-size: 11px; font-weight: 500; letter-spacing: 2.5px;
@@ -302,15 +302,15 @@ footer {
 }
 footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
 
-/* ===== STICKY ORDER BAR — top bar ===== */
+/* ===== STICKY ORDER — floating bottom-left pill ===== */
 .order-bar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  padding: 8px 20px; display: flex; justify-content: center;
-  background: var(--dark);
+  position: fixed; bottom: 24px; left: 24px; z-index: 200;
 }
 .order-bar-inner {
-  padding: 4px 0;
-  display: flex; align-items: center; gap: 20px;
+  background: var(--dark); padding: 12px 14px 12px 20px;
+  border-radius: 50px;
+  display: flex; align-items: center; gap: 16px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
 }
 .order-bar .ready-tag {
   display: flex; align-items: center; gap: 8px;
@@ -324,8 +324,8 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
   0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
 }
 .order-bar .order-btn {
-  background: var(--sage); color: white; padding: 7px 20px;
-  border-radius: 8px; font-size: 12px; font-weight: 500;
+  background: var(--sage); color: white; padding: 9px 20px;
+  border-radius: 50px; font-size: 12px; font-weight: 500;
   letter-spacing: 1px; text-transform: uppercase;
   text-decoration: none; transition: background 0.3s;
 }
@@ -336,7 +336,7 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-brand"><img src="https://static.wixstatic.com/media/716244_1d40b0a588ea4bd48466bcc47f232f48~mv2.jpg/v1/fill/w_120,h_50,al_c,q_85/file.jpg" alt="North Avenue Bakery" class="nav-logo"></a>
+  <a href="#" class="nav-brand"><img src="logo.png" alt="North Avenue Bakery" class="nav-logo"></a>
   <div class="nav-links">
     <a href="#story">Our Story</a>
     <a href="#menu">Menu</a>
@@ -392,7 +392,9 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
 <!-- STORY — C-style card with quote -->
 <section class="story-section" id="story">
   <div class="story-card">
-    <div class="story-img-placeholder"></div>
+    <div class="story-img-placeholder">
+      <img src="logo.png" alt="North Avenue Bakery — Famous Pastel de Nata">
+    </div>
     <div class="story-text">
       <div class="section-tag">Our Story</div>
       <h2>Three generations of tradition</h2>
