@@ -39,7 +39,7 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 .nav-brand { display: flex; align-items: center; text-decoration: none; }
-.nav-logo { height: 96px; width: auto; display: block; }
+.nav-logo { height: 96px; width: auto; display: block; border-radius: 50%; }
 .nav-links { display: flex; gap: 36px; }
 .nav-links a {
   font-size: 12px; font-weight: 400; color: var(--text);
@@ -55,28 +55,15 @@ nav {
   align-items: center; max-width: 1100px; margin: 0 auto;
   min-height: 0;
 }
-.hero-text .hero-tag {
-  font-size: 11px; font-weight: 500; letter-spacing: 2.5px;
-  text-transform: uppercase; color: var(--sage); margin-bottom: 24px;
-}
 .hero-text h1 {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(36px, 4.2vw, 54px);
-  font-weight: 400; line-height: 1.2; color: var(--dark); margin-bottom: 20px;
+  font-weight: 400; line-height: 1.2; color: var(--dark); margin-bottom: 16px;
 }
 .hero-text h1 span { color: var(--accent); }
 .hero-text p {
   font-size: 15px; line-height: 1.75; color: var(--text-light);
-  max-width: 400px; margin-bottom: 32px; font-weight: 300;
-}
-.hero-badges { display: flex; gap: 16px; flex-wrap: wrap; }
-.hero-badge {
-  display: flex; align-items: center; gap: 8px;
-  padding: 7px 16px; border: 1px solid var(--border); border-radius: 100px;
-  font-size: 12px; color: var(--text-light); font-weight: 400;
-}
-.hero-badge-dot {
-  width: 6px; height: 6px; border-radius: 50%; background: var(--sage);
+  max-width: 400px; margin-bottom: 20px; font-weight: 300;
 }
 
 .hero-rating {
@@ -221,13 +208,34 @@ nav {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .hero { grid-template-columns: 1fr; padding: 130px 28px 40px; text-align: center; }
-  .hero-visual { max-width: 300px; margin: 0 auto; }
-  .story-card { grid-template-columns: 1fr; padding: 32px 28px; gap: 32px; }
-  .visit-card { grid-template-columns: 1fr; padding: 32px 28px; gap: 32px; }
-  .video-section { padding: 20px 28px 60px; }
-  nav { padding: 18px 20px; }
-  .nav-links { gap: 20px; }
+  nav { padding: 6px 16px; }
+  .nav-logo { height: 56px; }
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 11px; letter-spacing: 1px; }
+  .hero { grid-template-columns: 1fr; padding: 80px 20px 24px; text-align: center; gap: 20px; }
+  .hero-text h1 { font-size: 32px; margin-bottom: 10px; }
+  .hero-text p { font-size: 14px; margin-bottom: 12px; margin-left: auto; margin-right: auto; }
+  .hero-rating { margin-top: 8px; }
+  .hero-visual { max-width: 220px; margin: 0 auto; }
+  .hero-img-main { max-height: 280px; }
+  .marquee-section { padding: 12px 0; }
+  .story-section { padding: 40px 20px; }
+  .story-card { grid-template-columns: 1fr; padding: 24px 20px; gap: 20px; }
+  .story-img-placeholder { aspect-ratio: 4/3; }
+  .story-text h2 { font-size: 26px; margin-bottom: 12px; }
+  .story-text p { font-size: 14px; margin-bottom: 10px; }
+  .story-quote { margin-top: 16px; }
+  .story-quote p { font-size: 17px; }
+  .video-section { padding: 16px 20px 40px; }
+  .video-center h3 { font-size: 28px; }
+  .video-center { padding: 20px; }
+  .visit-section { padding: 0 20px 40px; }
+  .visit-card { grid-template-columns: 1fr; padding: 24px 20px; gap: 20px; }
+  .visit-card h2 { font-size: 26px; margin-bottom: 16px; }
+  .visit-detail { margin-bottom: 12px; }
+  .order-tab a { padding: 10px 10px; }
+  .order-tab .tab-label { font-size: 10px; }
+  .order-tab .tab-sub { font-size: 8px; }
 }
 
 /* ===== FOOTER ===== */
@@ -275,13 +283,8 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
 <!-- HERO — B-style split -->
 <section class="hero">
   <div class="hero-text">
-    <div class="hero-tag">Portuguese Bakery · Elizabeth, NJ</div>
     <h1>Your neighborhood <span>Portuguese</span> bakery</h1>
     <p>Handmade pastéis de nata, tres leches, and traditional pastries, baked fresh every morning.</p>
-    <div class="hero-badges">
-      <div class="hero-badge"><span class="hero-badge-dot"></span> Baked fresh daily</div>
-      <div class="hero-badge"><span class="hero-badge-dot"></span> Family recipes</div>
-    </div>
     <a href="https://www.google.com/maps/place/North+Avenue+Bakery/@40.6755,-74.2208,17z/" target="_blank" class="hero-rating">
       <span class="hero-rating-stars">★★★★★</span>
       <span class="hero-rating-text">4.6 · 219 reviews on Google</span>
@@ -345,7 +348,6 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
   <div class="visit-card">
     <div>
       <div class="section-tag">Visit Us</div>
-      <h2>Come say hello</h2>
       <div class="visit-detail">
         <span class="visit-detail-icon">📍</span>
         <div><strong>1034 North Avenue</strong><br>Elizabeth, NJ 07201</div>
