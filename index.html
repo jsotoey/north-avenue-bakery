@@ -27,12 +27,12 @@ html { scroll-behavior: smooth; }
 body {
   font-family: 'Inter', sans-serif; color: var(--text);
   background: var(--cream); -webkit-font-smoothing: antialiased;
-  padding-bottom: 70px;
+  padding-bottom: 0; padding-top: 44px;
 }
 
 /* ===== NAV ===== */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  position: fixed; top: 44px; left: 0; right: 0; z-index: 100;
   display: flex; justify-content: space-between; align-items: center;
   padding: 18px 48px;
   background: rgba(250,248,244,0.92); backdrop-filter: blur(14px);
@@ -52,10 +52,10 @@ nav {
 
 /* ===== HERO — B-style split ===== */
 .hero {
-  padding: 110px 48px 60px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-  align-items: center; max-width: 1200px; margin: 0 auto;
-  min-height: 85vh;
+  padding: 120px 48px 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  align-items: center; max-width: 1100px; margin: 0 auto;
+  min-height: 0;
 }
 .hero-text .hero-tag {
   font-size: 11px; font-weight: 500; letter-spacing: 2.5px;
@@ -81,9 +81,17 @@ nav {
   width: 6px; height: 6px; border-radius: 50%; background: var(--sage);
 }
 
+.hero-rating {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 20px; text-decoration: none; transition: opacity 0.3s;
+}
+.hero-rating:hover { opacity: 0.7; }
+.hero-rating-stars { font-size: 14px; color: #E8A838; letter-spacing: 1px; }
+.hero-rating-text { font-size: 12px; color: var(--text-light); font-weight: 400; }
+
 .hero-visual { position: relative; }
 .hero-img-main {
-  width: 100%; aspect-ratio: 3/4; border-radius: 200px 200px 24px 24px;
+  width: 100%; max-height: 420px; aspect-ratio: 3/4; border-radius: 200px 200px 24px 24px;
   background: url('https://static.wixstatic.com/media/716244_ec881f08c2154e7dbaad4c43a8a7db73~mv2.jpg/v1/fill/w_900,h_1200,al_c,q_85/file.jpg') center/cover no-repeat;
   background-color: #D4A574;
   position: relative; overflow: hidden;
@@ -279,7 +287,7 @@ nav {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .hero { grid-template-columns: 1fr; padding: 120px 28px 60px; text-align: center; }
+  .hero { grid-template-columns: 1fr; padding: 130px 28px 40px; text-align: center; }
   .hero-visual { max-width: 300px; margin: 0 auto; }
   .story-card { grid-template-columns: 1fr; padding: 32px 28px; gap: 32px; }
   .favorites-section { padding: 80px 28px; }
@@ -296,20 +304,19 @@ footer {
 }
 footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
 
-/* ===== STICKY ORDER BAR — C-style floating pill ===== */
+/* ===== STICKY ORDER BAR — top bar ===== */
 .order-bar {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
-  padding: 12px 20px; display: flex; justify-content: center;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 8px 20px; display: flex; justify-content: center;
+  background: var(--dark);
 }
 .order-bar-inner {
-  background: var(--dark); padding: 12px 14px 12px 24px;
-  border-radius: 14px;
+  padding: 4px 0;
   display: flex; align-items: center; gap: 20px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
 }
 .order-bar .ready-tag {
   display: flex; align-items: center; gap: 8px;
-  font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 300;
+  font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 300;
 }
 .order-bar .ready-dot {
   width: 7px; height: 7px; border-radius: 50%; background: #90EE90;
@@ -319,8 +326,8 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
   0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
 }
 .order-bar .order-btn {
-  background: var(--sage); color: white; padding: 10px 24px;
-  border-radius: 10px; font-size: 13px; font-weight: 500;
+  background: var(--sage); color: white; padding: 7px 20px;
+  border-radius: 8px; font-size: 12px; font-weight: 500;
   letter-spacing: 1px; text-transform: uppercase;
   text-decoration: none; transition: background 0.3s;
 }
@@ -349,6 +356,10 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
       <div class="hero-badge"><span class="hero-badge-dot"></span> Baked fresh daily</div>
       <div class="hero-badge"><span class="hero-badge-dot"></span> Family recipes</div>
     </div>
+    <a href="https://www.google.com/maps/place/North+Avenue+Bakery/@40.6755,-74.2208,17z/" target="_blank" class="hero-rating">
+      <span class="hero-rating-stars">★★★★★</span>
+      <span class="hero-rating-text">4.6 · 219 reviews on Google</span>
+    </a>
   </div>
   <div class="hero-visual">
     <div class="hero-img-main"></div>
