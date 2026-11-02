@@ -34,12 +34,12 @@ body {
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; justify-content: space-between; align-items: center;
-  padding: 18px 48px;
+  padding: 10px 48px;
   background: rgba(250,248,244,0.92); backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
 .nav-brand { display: flex; align-items: center; text-decoration: none; }
-.nav-logo { height: 48px; width: auto; display: block; }
+.nav-logo { height: 96px; width: auto; display: block; }
 .nav-links { display: flex; gap: 36px; }
 .nav-links a {
   font-size: 12px; font-weight: 400; color: var(--text);
@@ -236,34 +236,28 @@ footer {
 }
 footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
 
-/* ===== STICKY ORDER — floating bottom-right pill ===== */
-.order-bar {
-  position: fixed; bottom: 20px; right: 20px; z-index: 200;
+/* ===== STICKY ORDER — right-edge tab ===== */
+.order-tab {
+  position: fixed; right: 0; top: 50%; transform: translateY(-50%);
+  z-index: 200;
 }
-.order-bar-inner {
-  background: var(--dark); padding: 8px 10px 8px 16px;
-  border-radius: 50px;
-  display: flex; align-items: center; gap: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+.order-tab a {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  background: var(--sage); color: white;
+  padding: 14px 14px; text-decoration: none;
+  border-radius: 12px 0 0 12px;
+  box-shadow: -2px 2px 12px rgba(0,0,0,0.15);
+  transition: background 0.3s, padding-right 0.3s;
+  writing-mode: horizontal-tb;
 }
-.order-bar .ready-tag {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 11px; color: rgba(255,255,255,0.65); font-weight: 300;
+.order-tab a:hover { background: #5a7e5f; padding-right: 20px; }
+.order-tab .tab-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.8px;
+  text-transform: uppercase; white-space: nowrap;
 }
-.order-bar .ready-dot {
-  width: 6px; height: 6px; border-radius: 50%; background: #90EE90;
-  animation: pulse-dot 2s ease-in-out infinite;
+.order-tab .tab-sub {
+  font-size: 9px; font-weight: 300; opacity: 0.8; white-space: nowrap;
 }
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
-}
-.order-bar .order-btn {
-  background: var(--sage); color: white; padding: 7px 16px;
-  border-radius: 50px; font-size: 11px; font-weight: 500;
-  letter-spacing: 0.8px; text-transform: uppercase;
-  text-decoration: none; transition: background 0.3s;
-}
-.order-bar .order-btn:hover { background: #5a7e5f; }
 </style>
 </head>
 <body>
@@ -377,16 +371,28 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
   <p>&copy; 2026 North Avenue Bakery. All rights reserved.</p>
 </footer>
 
-<!-- STICKY ORDER BAR — C-style floating pill -->
-<div class="order-bar">
-  <div class="order-bar-inner">
-    <div class="ready-tag">
-      <span class="ready-dot"></span>
-      Pickup ready in ~20 min
-    </div>
-    <a href="https://northavenuebakery.cloveronline.com/menu/all" class="order-btn">Order Online</a>
-  </div>
+<!-- STICKY ORDER TAB — right edge -->
+<div class="order-tab">
+  <a href="https://northavenuebakery.cloveronline.com/menu/all" target="_blank">
+    <span class="tab-label">Order Online</span>
+    <span class="tab-sub">Pickup ~20 min</span>
+  </a>
 </div>
+
+<script>
+// Safari autoplay fix — nudge video to play on load and on scroll into view
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('video[autoplay]').forEach(function(v) {
+    v.muted = true;
+    v.play().catch(function() {});
+    // Also retry when scrolled into view
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) v.play().catch(function() {}); });
+    }, { threshold: 0.3 });
+    observer.observe(v);
+  });
+});
+</script>
 
 </body>
 </html>
