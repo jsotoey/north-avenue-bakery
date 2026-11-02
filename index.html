@@ -70,9 +70,8 @@ nav {
 .hero-visual { position: relative; }
 .hero-img-main {
   width: 100%; max-height: 420px; aspect-ratio: 3/4; border-radius: 200px 200px 24px 24px;
-  background: url('https://static.wixstatic.com/media/716244_ec881f08c2154e7dbaad4c43a8a7db73~mv2.jpg/v1/fill/w_900,h_1200,al_c,q_85/file.jpg') center/cover no-repeat;
-  background-color: #D4A574;
-  position: relative; overflow: hidden;
+  object-fit: cover;
+  display: block;
 }
 
 /* ===== MARQUEE ===== */
@@ -208,8 +207,8 @@ nav {
   .hero { grid-template-columns: 1fr; padding: 72px 24px 20px; text-align: center; gap: 16px; }
   .hero-text h1 { font-size: 28px; margin-bottom: 6px; }
   .hero-text p { font-size: 13px; margin-bottom: 0; line-height: 1.6; max-width: 280px; margin-left: auto; margin-right: auto; }
-  .hero-visual { max-width: 180px; margin: 0 auto; }
-  .hero-img-main { max-height: 230px; aspect-ratio: 3/4; border-radius: 100px 100px 16px 16px; }
+  .hero-visual { max-width: 240px; margin: 0 auto; }
+  .hero-img-main { max-height: 320px; aspect-ratio: 3/4; border-radius: 120px 120px 16px 16px; }
   .marquee-section { padding: 12px 0; }
   .story-section { padding: 40px 20px; }
   .story-card { grid-template-columns: 1fr; padding: 24px 20px; gap: 20px; }
@@ -279,7 +278,7 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
     <p>Handmade pastéis de nata, tres leches, and traditional pastries, baked fresh every morning.</p>
   </div>
   <div class="hero-visual">
-    <div class="hero-img-main"></div>
+    <img src="https://static.wixstatic.com/media/716244_ec881f08c2154e7dbaad4c43a8a7db73~mv2.jpg/v1/fill/w_900,h_1200,al_c,q_85/file.jpg" alt="Pastel de nata" class="hero-img-main" loading="eager">
   </div>
 </section>
 
