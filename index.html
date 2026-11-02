@@ -66,13 +66,6 @@ nav {
   max-width: 400px; margin-bottom: 20px; font-weight: 300;
 }
 
-.hero-rating {
-  display: inline-flex; align-items: center; gap: 8px;
-  margin-top: 20px; text-decoration: none; transition: opacity 0.3s;
-}
-.hero-rating:hover { opacity: 0.7; }
-.hero-rating-stars { font-size: 14px; color: #E8A838; letter-spacing: 1px; }
-.hero-rating-text { font-size: 12px; color: var(--text-light); font-weight: 400; }
 
 .hero-visual { position: relative; }
 .hero-img-main {
@@ -212,12 +205,11 @@ nav {
   .nav-logo { height: 56px; }
   .nav-links { gap: 16px; }
   .nav-links a { font-size: 11px; letter-spacing: 1px; }
-  .hero { grid-template-columns: 1fr; padding: 80px 20px 24px; text-align: center; gap: 20px; }
-  .hero-text h1 { font-size: 32px; margin-bottom: 10px; }
-  .hero-text p { font-size: 14px; margin-bottom: 12px; margin-left: auto; margin-right: auto; }
-  .hero-rating { margin-top: 8px; }
-  .hero-visual { max-width: 220px; margin: 0 auto; }
-  .hero-img-main { max-height: 280px; }
+  .hero { grid-template-columns: 1.2fr 1fr; padding: 72px 16px 16px; text-align: left; gap: 12px; }
+  .hero-text h1 { font-size: 26px; margin-bottom: 6px; }
+  .hero-text p { font-size: 13px; margin-bottom: 0; line-height: 1.6; }
+  .hero-visual { max-width: 100%; margin: 0; }
+  .hero-img-main { max-height: 240px; border-radius: 100px 100px 16px 16px; }
   .marquee-section { padding: 12px 0; }
   .story-section { padding: 40px 20px; }
   .story-card { grid-template-columns: 1fr; padding: 24px 20px; gap: 20px; }
@@ -285,10 +277,6 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
   <div class="hero-text">
     <h1>Your neighborhood <span>Portuguese</span> bakery</h1>
     <p>Handmade pastéis de nata, tres leches, and traditional pastries, baked fresh every morning.</p>
-    <a href="https://www.google.com/maps/place/North+Avenue+Bakery/@40.6755,-74.2208,17z/" target="_blank" class="hero-rating">
-      <span class="hero-rating-stars">★★★★★</span>
-      <span class="hero-rating-text">4.6 · 219 reviews on Google</span>
-    </a>
   </div>
   <div class="hero-visual">
     <div class="hero-img-main"></div>
@@ -298,16 +286,20 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
 <!-- MARQUEE -->
 <div class="marquee-section">
   <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot"></span>Elizabeth, New Jersey</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>★★★★★ 4.6 · 219 Reviews on Google</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Baked Fresh Daily</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>"Best natas outside of Lisbon" ★★★★★</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>"Best natas outside of Lisbon"</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Family Recipes</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>"A hidden gem in Elizabeth" ★★★★★</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>"A hidden gem in Elizabeth"</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Pickup in ~20 Min</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Portuguese Tradition</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Elizabeth, New Jersey</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>★★★★★ 4.6 · 219 Reviews on Google</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Baked Fresh Daily</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>"Best natas outside of Lisbon" ★★★★★</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>"Best natas outside of Lisbon"</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Family Recipes</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>"A hidden gem in Elizabeth" ★★★★★</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>"A hidden gem in Elizabeth"</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Pickup in ~20 Min</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Portuguese Tradition</span>
   </div>
