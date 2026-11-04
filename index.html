@@ -47,7 +47,12 @@ nav {
   background: rgba(250,248,244,0.92); backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
-.nav-brand { display: flex; align-items: center; text-decoration: none; }
+.nav-brand { display: flex; align-items: center; text-decoration: none; gap: 14px; }
+.nav-location {
+  font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--text-light); font-weight: 400; white-space: nowrap;
+  border-left: 1px solid var(--border); padding-left: 14px;
+}
 .nav-logo {
   height: 72px; width: 72px; display: block; border-radius: 50%;
   object-fit: cover; object-position: center;
@@ -110,6 +115,52 @@ nav {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* ===== SHOWCASE — product grid ===== */
+.showcase-section {
+  padding: 80px 48px 20px; max-width: 1100px; margin: 0 auto;
+}
+.showcase-header {
+  text-align: center; margin-bottom: 48px;
+}
+.showcase-header .section-tag {
+  font-size: 11px; font-weight: 500; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--sage); margin-bottom: 12px;
+}
+.showcase-header h2 {
+  font-family: 'Cormorant Garamond', serif; font-size: 34px;
+  font-weight: 400; color: var(--dark);
+}
+.showcase-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.showcase-item {
+  text-align: center; text-decoration: none; color: var(--text);
+  transition: transform 0.3s;
+}
+.showcase-item:hover { transform: translateY(-4px); }
+.showcase-item img {
+  width: 100%; aspect-ratio: 4/3; object-fit: cover;
+  border-radius: 16px; display: block;
+  background: #E8E0D6;
+}
+.showcase-item h3 {
+  font-family: 'Cormorant Garamond', serif; font-size: 20px;
+  font-weight: 400; margin-top: 14px; color: var(--dark);
+}
+.showcase-item p {
+  font-size: 12px; color: var(--text-light); margin-top: 4px;
+  font-weight: 300; letter-spacing: 0.3px;
+}
+.showcase-cta {
+  text-align: center; margin-top: 36px;
+}
+.showcase-cta a {
+  font-size: 13px; font-weight: 500; color: var(--sage);
+  text-decoration: none; letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+.showcase-cta a:hover { color: var(--olive); }
 
 /* ===== STORY — C-style card with quote ===== */
 .story-section {
@@ -217,6 +268,7 @@ nav {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   nav { padding: 8px 16px; }
+  .nav-location { display: none; }
   .nav-logo { height: 48px; width: 48px; }
   .nav-links { gap: 16px; }
   .nav-links a { font-size: 11px; letter-spacing: 1px; }
@@ -226,6 +278,12 @@ nav {
   .hero-visual { max-width: 240px; margin: 0 auto; }
   .hero-img-main { max-height: 320px; aspect-ratio: 3/4; border-radius: 120px 120px 16px 16px; }
   .marquee-section { padding: 8px 0; }
+  .showcase-section { padding: 40px 20px 10px; }
+  .showcase-header { margin-bottom: 28px; }
+  .showcase-header h2 { font-size: 26px; }
+  .showcase-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .showcase-item h3 { font-size: 17px; margin-top: 10px; }
+  .showcase-cta { margin-top: 24px; }
   .story-section { padding: 40px 20px; }
   .story-card { grid-template-columns: 1fr; padding: 24px 20px; gap: 20px; }
   .story-img-placeholder { aspect-ratio: 4/3; }
@@ -280,10 +338,10 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-brand"><img src="logo.png" alt="North Avenue Bakery" class="nav-logo"></a>
+  <a href="#" class="nav-brand"><img src="logo.png" alt="North Avenue Bakery" class="nav-logo"><span class="nav-location">Elizabeth, NJ</span></a>
   <div class="nav-links">
+    <a href="#menu">Menu</a>
     <a href="#story">Our Story</a>
-    <a href="https://northavenuebakery.cloveronline.com/menu/all" target="_blank">Menu</a>
     <a href="#visit">Visit</a>
   </div>
 </nav>
@@ -320,6 +378,49 @@ footer p { font-size: 12px; color: var(--text-light); letter-spacing: 0.5px; }
     <span class="marquee-item"><span class="marquee-dot"></span>Portuguese Tradition</span>
   </div>
 </div>
+
+<!-- SHOWCASE — product highlights -->
+<section class="showcase-section" id="menu">
+  <div class="showcase-header">
+    <div class="section-tag">Fresh From the Oven</div>
+    <h2>Signature pastries</h2>
+  </div>
+  <div class="showcase-grid">
+    <a class="showcase-item" href="https://northavenuebakery.cloveronline.com/menu/all" target="_blank">
+      <img src="https://cloverstatic.com/menu-assets/items/AMNWRP14T8M16_1500x1125.jpeg?v=1793071408413" alt="Pastel de Nata" loading="lazy">
+      <h3>Pastel de Nata</h3>
+      <p>Custard Tart</p>
+    </a>
+    <a class="showcase-item" href="https://northavenuebakery.cloveronline.com/menu/all" target="_blank">
+      <img src="https://cloverstatic.com/menu-assets/items/E60DVCCXHR9XA_1500x1125.jpeg?v=1793069462970" alt="Bola de Berlim" loading="lazy">
+      <h3>Bola de Berlim</h3>
+      <p>Baked Berliner</p>
+    </a>
+    <a class="showcase-item" href="https://northavenuebakery.cloveronline.com/menu/all" target="_blank">
+      <img src="https://cloverstatic.com/menu-assets/items/7XPP2STYFYBWE_1500x1125.jpeg?v=1793069507364" alt="Bolo de Milho" loading="lazy">
+      <h3>Bolo de Milho</h3>
+      <p>Corn Cake</p>
+    </a>
+    <a class="showcase-item" href="https://northavenuebakery.cloveronline.com/menu/all" target="_blank">
+      <img src="https://cloverstatic.com/menu-assets/items/Q3BRJP31YDVZM_1500x1125.jpeg?v=1793069484304" alt="Bolo de Arroz" loading="lazy">
+      <h3>Bolo de Arroz</h3>
+      <p>Rice Cake</p>
+    </a>
+    <a class="showcase-item" href="https://northavenuebakery.cloveronline.com/menu/all" target="_blank">
+      <img src="https://cloverstatic.com/menu-assets/items/8FPY4SK0YYPTY_1500x1125.jpeg?v=1793071258881" alt="Jesuita" loading="lazy">
+      <h3>Jesuíta</h3>
+      <p>Jesuit Pastry</p>
+    </a>
+    <a class="showcase-item" href="https://northavenuebakery.cloveronline.com/menu/all" target="_blank">
+      <img src="https://cloverstatic.com/menu-assets/items/63BMYTAS4VY9W_1500x1125.jpeg?v=1793071274994" alt="Rosca" loading="lazy">
+      <h3>Rosca</h3>
+      <p>Traditional Ring Cake</p>
+    </a>
+  </div>
+  <div class="showcase-cta">
+    <a href="https://northavenuebakery.cloveronline.com/menu/all" target="_blank">View Full Menu & Order Online ↗</a>
+  </div>
+</section>
 
 <!-- STORY — C-style card with quote -->
 <section class="story-section" id="story">
